@@ -1,0 +1,18 @@
+﻿<li class="nav-item dropdown">
+    <a asp-controller="Mobile"
+       asp-action="Index"
+       class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" aria-expanded="false" data-bs-toggle="dropdown">Mobiles<b class="caret"></b></a>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a class="dropdown-item" asp-controller="Mobile" asp-action="Index"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>
+        }
+        <li class="divider"></li>
+        <li>
+            <a class="dropdown-item" asp-controller="Mobile" asp-action="Index" asp-route-category="">View all mobiles</a>
+        </li>
+    </ul>
+</li>

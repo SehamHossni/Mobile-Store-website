@@ -1,0 +1,59 @@
+﻿@model MobileStore.Data.Models.Review
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Review Page";
+}
+
+<!-- /.card-header -->
+<div class="card-body">
+
+    <h3 Style="text-align:center"> Share Us with your review    </h3>
+   
+</div>
+<!-- /.card-body -->
+
+@if (Model == null)
+{
+
+
+    <!-- /.card-footer -->
+    <div class="card-footer" style="text-align:left">
+        <form asp-controller="Review" asp-action="CreateComments" asp-route-MobileId="@ViewBag.MobileId" method="post">
+            <img class="img-fluid rounded-circle img-sm" src="https://www.choicemedwaste.com/wp-content/uploads/default-user-avatar-dc6f2da9-300x300.gif" alt="Alt Text" 
+                 style="float:left; padding-right:4px; width:40px; height:50px;">
+
+            <div class="img-push" style="text-align: left; color: #270b3d">
+                <textarea type="text" class="form-control form-control-sm"
+                          asp-for="Content"
+                          placeholder="Write your comment here"></textarea>
+                <div class="col-sm-2 offset-sm-3" style="float:left">
+                    <button class="btn btn-primary" id="submit">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+}
+else
+{
+   <div class="card-footer card-comments">
+
+        <partial name="_ReviewPartial" />
+
+    </div>
+    <div class="card-footer" style="text-align:left">
+        <form asp-controller="Review" asp-action="CreateComments" asp-route-MobileId="@Model.MobileId" method="post">
+            <img class="img-fluid rounded-circle img-sm"  style="width:40px; height:50px;" src="https://www.choicemedwaste.com/wp-content/uploads/default-user-avatar-dc6f2da9-300x300.gif" alt="Alt Text">
+            <!-- .img-push is used to add margin to elements next to floating images -->
+            <div class="img-push" >
+                <textarea type="text" class="form-control form-control-sm"
+                          asp-for="Content"
+                          placeholder="Write your Comment "></textarea>
+            <button class="btn btn-primary" id="submit">Send</button>
+                
+            </div>
+        </form>
+    </div>
+}

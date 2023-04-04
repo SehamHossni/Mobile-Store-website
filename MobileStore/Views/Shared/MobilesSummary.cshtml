@@ -1,0 +1,28 @@
+﻿@model Mobile
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="card" style=" height:570px;margin-bottom:20px">
+        <div class="card-image hover01" style="height:50%;">
+            <a><img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="Mobile-Image" style="height:100%;" /></a>
+        </div>
+        <div class="card-body" style="height:50%">
+            <div>
+                <h3>@Model.Price.ToString("C")</h3>
+                <h3>
+                    <a asp-controller="Mobile" asp-action="Details" asp-route-mobileId="@Model.MobileId" style="text-decoration:none">@Model.Name</a>
+                </h3>
+                <p>@Model.ShortDescription</p>
+            </div>
+            <div class="addToCart text-right">
+                <p class="button ">
+                    <a class="btn" style="background-color: #270b3d; color: #fff; " id="cartButton" asp-controller="ProductWishlist" asp-action="AddToWishList" asp-route-mobileId="@Model.MobileId">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    <a class="btn btn-success" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-mobileId="@Model.MobileId">
+                        Add to cart
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

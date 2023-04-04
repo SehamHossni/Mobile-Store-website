@@ -1,0 +1,55 @@
+﻿@model MobileStore.Data.Models.MobileReviewsViewModel
+<h2>Mobile Details</h2>
+@*<table style="border:solid 2px dashed;"></table>
+    <tr>
+        <td>
+            Mobile title
+        </td>
+        <td>
+            @Html.DisplayFor(m=>m.mobile.Name) <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+        </td>
+    </tr>*@
+<div class="container marginTop">
+<div class="row">
+    <div class="card">
+        <div class="text-center view overlay hm-white-slight">
+            <img src="@Model.mobile.ImageUrl" style="width:40px; height:50px;" class="rounded-circle" alt="">
+            <a href="#">
+                <div class="mask waves-effect waves-light"></div>
+            </a>
+        </div>
+        <div class="card-block">
+            <!--Title-->
+            <h4 class="card-title">@Model.mobile.Name</h4>
+            <!--Text-->
+            <p class="card-text">@Model.mobile.LongDescription.</p>
+            <p class="btn btn-group pull-right">
+                <div class="btn-group ">
+                    <a class="btn" style="background-color: #fff; color: #270b3d; border-color: #270b3d " id="cartButton" asp-controller="ProductWishlist" asp-action="AddToWishList" asp-route-mobileId="@Model.mobile.MobileId">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                </div>
+                <div class="btn-group ">
+                    <a class="btn btn-default" style="background-color: #270b3d; color: #fff; " asp-controller="Mobile" asp-action="Index">Show all Mobiles</a>
+                </div>
+                <a class="btn btn-success" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-mobileId="@Model.mobile.MobileId">
+                    Add @Model.mobile.Name to cart
+                </a>
+            </p>
+
+        </div>
+        <div class="btn-group ">
+            <a class="btn btn-default" style="background-color: #fff; color: green; border-color: green " asp-controller="Review" asp-route-MobileId="@Model.mobile.MobileId" asp-action="MobileReview">Review</a>
+        </div>
+        <div>
+            <h2>Review</h2>
+            
+        </div>
+    </div>
+</div>
+</div>

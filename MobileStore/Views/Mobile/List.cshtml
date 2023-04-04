@@ -1,0 +1,14 @@
+﻿@*@model MobilesListViewModel*@
+@model ReflectionIT.Mvc.Paging.PagingList<Mobile>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+
+<div class="row marginTop">
+    @foreach (var mobile in Model)
+    {
+        @Html.Partial("MobilesSummary", mobile)
+    }
+</div>
+<nav aria-label="Suppliers navigation example">
+    <vc:pager paging-list="@Model" action="List" />
+</nav>

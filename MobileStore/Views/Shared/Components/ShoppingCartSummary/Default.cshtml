@@ -1,0 +1,19 @@
+﻿@model ShoppingCartViewModel
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@inject SignInManager<IdentityUser> SignInManager
+
+<li class="nav-item">
+    @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
+    {
+
+        <a asp-controller="ShoppingCart" style="color:whitesmoke;text-decoration:none">
+            <i class="fa fa-shopping-cart"></i>
+            <span id="cart-status">
+                @Model.ShoppingCart.ShoppingCartItems.Count
+            </span>
+        </a>
+
+    }
+</li>

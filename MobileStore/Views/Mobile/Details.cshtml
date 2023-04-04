@@ -1,0 +1,38 @@
+﻿@model Mobile
+
+<div class="container marginTop">
+    <div class="row">
+        <div class="card">
+            <div class="text-center view overlay hm-white-slight">
+                <img src="@Model.ImageUrl" class="img-fluid" alt="">
+                <a href="#">
+                    <div class="mask waves-effect waves-light"></div>
+                </a>
+            </div>
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">@Model.Name</h4>
+                <!--Text-->
+                <p class="card-text">@Model.LongDescription.</p>
+                <h5>Specifications:</h5>
+                <p class="card-text">@Model.Specification.</p>
+                <p class="btn btn-group pull-right">
+                    <div class="btn-group ">
+                        <a class="btn" style="background-color: #fff; color: #270b3d; border-color: #270b3d " id="cartButton" asp-controller="ProductWishlist" asp-action="AddToWishList" asp-route-mobileId="@Model.MobileId">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="btn-group ">
+                        <a class="btn btn-default" style="background-color: #270b3d; color: #fff; " asp-controller="Mobile" asp-action="Index">Show all Mobiles</a>
+                    </div>
+                    <a class="btn btn-success" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-mobileId="@Model.MobileId">
+                        Add @Model.Name to cart
+                    </a>
+                    <div class="btn-group ">
+                        <a class="btn btn-default" style="background-color: #fff; color: green; border-color: green " asp-controller="Review" asp-route-MobileId="@Model.MobileId" asp-action="Index">Review</a>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

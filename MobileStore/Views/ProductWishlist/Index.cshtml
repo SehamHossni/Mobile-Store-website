@@ -1,0 +1,40 @@
+﻿@model ProductWishlistViewModel
+<div class="container bg-white rounded-top mt-3" id="zero-pad">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10 col-12 pt-3">
+            <h2>Your Favorites</h2>
+            <h4>Here are your favorite Mobiles.</h4>
+            @foreach (var line in Model.ProductWishlist.ProductWishlistItems)
+            {
+                <div class="d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom mobile">
+                    <div class="d-flex flex-row align-items-center">
+                        <div><img src="@line.Mobile.ImageUrl" width="150" height="150" alt="" id="image"></div>
+                        <div class="d-flex flex-column pl-md-3 pl-1">
+                            <div>
+                                <h6>@line.Mobile.Name</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pl-md-0 pl-1"><b>@line.Mobile.Price.ToString("c")</b></div>
+                    <div class="pl-md-0 pl-2">
+                        <a class="btn" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-mobileId="@line.Mobile.MobileId">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                    <div class="close"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ProductWishlist" asp-action="RemoveFromWishList" asp-route-mobileId="@line.Mobile.MobileId"><i class="fa fa-remove"></i></a></div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+                <div class="container bg-light rounded-bottom py-4" id="zero-pad">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group "> <a class="btn btn-default" style="background-color: #270b3d; color: #fff; " asp-controller="Mobile" asp-action="Index">CONTINUE</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
